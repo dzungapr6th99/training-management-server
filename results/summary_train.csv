@@ -1,0 +1,5 @@
+run,model,init,steps,batch_size,finished,exit_code,wall_hours,steps_per_s,peak_mem_gb_logged,loss_first,loss_final,note,source
+act_pallet_all,act,scratch (lerobot defaults),100000,8,True,0,2.2947,12.1051,1.6,0.109,0.0454,2 đoạn: 0–20345 (0.47 h) + resume (1.82 h),train_act_pallet_all.json
+groot_pallet_all,groot,"nvidia/GR00T-N1.7-3B (LLM + vision + DiT frozen, bf16)",20000,8,True,0,2.383,2.33,12.73,1.276,0.027,,train_groot_pallet_all.json
+pi05_pallet_all_smoke,pi05,lerobot/pi05_base (expert-only fine-tune),200,8,False,1,0.025,2.25,,,,,train_pi05_pallet_all_smoke.json
+smolvla_pallet_all,smolvla,models/smolvla_base_humanoid,40000,8,True,0,2.434,4.56,3.57,2.516,0.0272,,train_smolvla_pallet_all.json

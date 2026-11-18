@@ -1,0 +1,11 @@
+# machine-specific settings: copy .env.example to .env
+.env
+# training env created by setup_train_env
+env_isaacsim/
+env/
+# large data and weights (models/hf_home also holds the Hugging Face token): never commit
+models/
+datasets/
+outputs/
+logs/
+vendor/

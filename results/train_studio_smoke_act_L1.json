@@ -1,0 +1,23 @@
+{
+ "generated_by": "backend/app/jobs.py (Training Studio)",
+ "run": "studio_smoke_act_L1",
+ "model": "act",
+ "init": "scratch (lerobot defaults)",
+ "dataset": "datasets/lerobot/yellowarm_pallet_L1",
+ "steps": 100,
+ "batch_size": 8,
+ "mode": "studio",
+ "exit_code": 0,
+ "finished": true,
+ "wall_hours": 0.015,
+ "steps_per_s": null,
+ "peak_mem_gb_logged": null,
+ "last_logged_step": "100",
+ "final_loss_mean_last5_logs": 5.272,
+ "loss_first_log": 43.624,
+ "checkpoints": [
+  "000100"
+ ],
+ "command": "D:\\AI-Agent-Project\\My-Humanoid-Hand\\training-management-server\\env\\python.exe -m lerobot.scripts.lerobot_train --policy.type=act --policy.device=cuda --dataset.repo_id=local/yellowarm_pallet_L1 --dataset.root=D:\\AI-Agent-Project\\My-Humanoid-Hand\\training-management-server\\datasets\\lerobot\\yellowarm_pallet_L1 --dataset.video_backend=pyav --policy.push_to_hub=false --batch_size=8 --num_workers=4 --log_freq=10 --wandb.enable=false --steps=100 --save_freq=100 --output_dir=D:\\AI-Agent-Project\\My-Humanoid-Hand\\training-management-server\\outputs\\studio_smoke_act_L1 --job_name=studio_smoke_act_L1",
+ "log": "logs/studio/job_1.log"
+}

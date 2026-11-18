@@ -1,0 +1,174 @@
+{
+  "tag": "demo_act_success_200002",
+  "config": {
+    "checkpoint": "outputs/act_pallet_all/checkpoints/100000/pretrained_model",
+    "sim_script": "scripts/humanoid_pallet_sim.py",
+    "episodes": 1,
+    "seed": 200002,
+    "seeds": [
+      200002,
+      200002
+    ],
+    "exec_steps": 8,
+    "episode_seconds": 23.76,
+    "extra_sim_args": [
+      "--level",
+      "1",
+      "--split",
+      "train",
+      "--save-video",
+      "logs/videos/act_success"
+    ],
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-10-08T15:01:27",
+  "wall_seconds": 229.3,
+  "complete": true,
+  "n_episodes": 1,
+  "n_success": 1,
+  "success_rate": 1.0,
+  "wilson95": [
+    0.2065,
+    1.0
+  ],
+  "infer_ms_mean": 47.33,
+  "infer_ms_max": 311.03,
+  "server_infer_ms_mean": 43.64,
+  "server_info": {
+    "ok": true,
+    "policy_type": "act",
+    "image_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "n_action_steps": 100,
+    "state_dim": 16,
+    "action_dim": 16,
+    "uses_task": false,
+    "vram_gib": 0.193,
+    "vram_peak_gib": 0.193
+  },
+  "vram_peak_gib": 0.217,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 200002,
+      "episodes_requested": 1,
+      "episodes_total_after": 1,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 200002,
+      "success": true,
+      "steps": 594,
+      "seconds": 180.8,
+      "exec_steps": 8,
+      "episode_seconds": 23.76,
+      "max_lift_m": 0.1304,
+      "lifted": true,
+      "first_in_cell_step": 148,
+      "grip_min_cmd": {
+        "L": 0.994,
+        "R": 0.0
+      },
+      "arm_distance_min_m": 0.2977,
+      "n_infer": 75,
+      "infer_ms_mean": 47.33,
+      "infer_ms_max": 311.03,
+      "server_infer_ms_mean": 43.64,
+      "level": 1,
+      "split": "train",
+      "task": "put the blue cylinder on the pallet",
+      "dart_noise": 0.0,
+      "parts": [
+        {
+          "shape": "cyl_up",
+          "scale": 0.8,
+          "color": "blue",
+          "name": "cylinder",
+          "dims": [
+            0.032,
+            0.032,
+            0.04
+          ],
+          "mass_kg": 0.0161,
+          "xy": [
+            0.5042,
+            -0.184
+          ],
+          "yaw_deg": 91.7
+        }
+      ],
+      "prefill": [],
+      "target": 0,
+      "target_cell": 3,
+      "arm": "R",
+      "arm_reach": {
+        "L": true,
+        "R": true
+      },
+      "grasp_yaw_deg": 0.0,
+      "ik_margin": 0.039,
+      "arm_clearance_m": 0.307,
+      "dr": {
+        "dome_intensity": 1335.5200243319377,
+        "sun_intensity": 358.7123504716583,
+        "sun_elevation_deg": 31.110467329166596,
+        "sun_azimuth_deg": 49.88535082101697,
+        "color_temperature_k": 4447.977079588923,
+        "table_rgb": [
+          0.704,
+          0.506,
+          0.501
+        ],
+        "table_texture": "",
+        "table_roughness": 0.8708324870696884,
+        "texture_scale": 1.3291447405773256,
+        "texture_rotate_deg": 61.92558976991118,
+        "texture_translate": [
+          0.535,
+          0.146
+        ],
+        "cam_d_pos_m": [
+          0.0137,
+          0.0069,
+          -0.0142
+        ],
+        "cam_d_rot_deg": [
+          2.39,
+          0.8,
+          2.1
+        ],
+        "part_friction": [
+          0.94
+        ],
+        "part_mass_scale": [
+          1.053
+        ]
+      },
+      "pallet_center": [
+        0.5247,
+        0.0027
+      ],
+      "pallet_yaw_deg": -3.16,
+      "cell": 3,
+      "cell_was_free": true,
+      "low": true,
+      "still": true,
+      "upright": true,
+      "others_on_pallet": [],
+      "end_pos": [
+        0.5514,
+        -0.0617,
+        0.026
+      ],
+      "lin_vel": 0.0,
+      "ang_vel": 0.0,
+      "rejected_layouts": 0
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+ "_doc": [
+  "Parts for the parts-to-pallet task (PLAN.md 2.1). Lengths in metres at size scale 1.0; every part comes in the three",
+  "scales of 'sizes'. Local frame: z up, origin at the centre. 'dims' = full extent (x, y, z) of the part's bounding box.",
+  "Top-down grasp: the fingers close along the part's local y ('grip_width' = local y extent); 'yaw_period_deg' is the",
+  "yaw symmetry of the part, used together with the gripper's own 180 deg symmetry to pick the grasp yaw.",
+  "'split': 'train' parts/colours appear in the training data; 'heldout' only on the TARGET part of the heldout_* eval",
+  "splits (PLAN 2.6; the other parts of those episodes are training parts).",
+  "Gripper max opening 75 mm -> every grip_width x max(sizes) must stay <= 0.060 (checked by humanoid_pallet_plan.py).",
+  "long_bar (200x30x30, L4 only) is not included: L3/L4 were cut on 2026-10-05."
+ ],
+ "sizes": [0.8, 1.0, 1.2],
+ "density_kg_m3": 500.0,
+ "friction": 1.2,
+ "shapes": {
+  "box":       {"name": "cube",           "kind": "box",      "dims": [0.040, 0.040, 0.040], "yaw_period_deg": 90,  "split": "train"},
+  "flat_box":  {"name": "flat block",     "kind": "box",      "dims": [0.060, 0.040, 0.020], "yaw_period_deg": 180, "split": "train"},
+  "cyl_up":    {"name": "cylinder",       "kind": "cylinder", "dims": [0.040, 0.040, 0.050], "axis": "z", "yaw_period_deg": 0, "split": "train"},
+  "cyl_lying": {"name": "roller",         "kind": "cylinder", "dims": [0.060, 0.030, 0.030], "axis": "x", "yaw_period_deg": 180, "split": "train"},
+  "hex_prism": {"name": "hex nut",        "kind": "hex",      "dims": [0.04157, 0.036, 0.020], "yaw_period_deg": 60, "split": "heldout",
+                "_note": "hexagonal prism, 36 mm across flats (local y), corners on local x; convex mesh (no hole)"}
+ },
+ "colors": {
+  "red":    {"rgb": [0.85, 0.10, 0.10], "split": "train"},
+  "green":  {"rgb": [0.10, 0.65, 0.20], "split": "train"},
+  "blue":   {"rgb": [0.10, 0.30, 0.90], "split": "train"},
+  "yellow": {"rgb": [0.95, 0.85, 0.10], "split": "train"},
+  "orange": {"rgb": [0.90, 0.25, 0.00], "split": "train"},
+  "purple": {"rgb": [0.55, 0.20, 0.75], "split": "heldout"}
+ },
+ "pallet": {
+  "_doc": "2 rows (along the pallet's local x, i.e. away from the robot) x 3 columns (local y). Static tray on the table.",
+  "rows": 2, "cols": 3, "cell_inner": 0.080, "wall": 0.006, "wall_height": 0.015, "base": 0.006,
+  "color": [0.18, 0.18, 0.20],
+  "jitter_xy": 0.01, "jitter_yaw_deg": 5.0,
+  "_jitter_note": "largest jitter for which the inner area of all 6 cells stays in the shared workspace (2026-10-05)"
+ }
+}

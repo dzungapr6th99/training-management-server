@@ -1,0 +1,69 @@
+{
+  "tag": "test_harness_recheck",
+  "config": {
+    "checkpoint": "outputs/smolvla_yellowarm_cube_in_box/checkpoints/030000/pretrained_model",
+    "sim_script": "D:\\Isaac\\smolvla-openarm\\scripts\\yellowarm_sim.py",
+    "episodes": 1,
+    "seed": 1000,
+    "seeds": [
+      1000,
+      1000
+    ],
+    "exec_steps": 8,
+    "episode_seconds": 10.0,
+    "extra_sim_args": [],
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-10-04T17:15:02",
+  "wall_seconds": 75.8,
+  "complete": true,
+  "n_episodes": 1,
+  "n_success": 1,
+  "success_rate": 1.0,
+  "wilson95": [
+    0.2065,
+    1.0
+  ],
+  "infer_ms_mean": 268.16,
+  "infer_ms_max": 570.07,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 1000,
+      "episodes_requested": 1,
+      "episodes_total_after": 1,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 1000,
+      "success": true,
+      "steps": 250,
+      "seconds": 36.82,
+      "first_in_box_step": 108,
+      "cube_lifted": true,
+      "cube_max_z": 0.1464,
+      "end_dist_to_box": 0.0222,
+      "cube_start": [
+        0.2876,
+        0.1761
+      ],
+      "cube_yaw_deg": 4.7,
+      "box": [
+        0.3443,
+        -0.2234
+      ],
+      "cube_end": [
+        0.3255,
+        -0.2353,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 268.16,
+      "infer_ms_max": 570.07
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+ "key": "{\"mount\": \"forward45\", \"mount_height\": 0.45, \"roll_left_deg\": 90, \"roll_right_deg\": 90, \"separation\": 0.55, \"torso_table_gap\": 0.05}",
+ "park": {
+  "L": [
+   0.6282494792053033,
+   0.262703147013231,
+   2.3498651675030775,
+   -1.1870751038311214,
+   -1.8316246699277006,
+   1.5145363644868786,
+   -0.23471780390433344
+  ],
+  "R": [
+   -3.5578396007605706,
+   0.04642494742719309,
+   -2.3813240404692837,
+   -1.6530792879660383,
+   1.8202094804097666,
+   1.4743309513859293,
+   -1.1753511172210487
+  ]
+ },
+ "clearance": {
+  "L": {
+   "free_fraction": 1.0,
+   "min_m": 0.063,
+   "tcp_yaw": [
+    0.65,
+    0.46,
+    0.18,
+    0.0
+   ]
+  },
+  "R": {
+   "free_fraction": 1.0,
+   "min_m": 0.069,
+   "tcp_yaw": [
+    0.55,
+    0.46,
+    0.18,
+    1.5707963267948966
+   ]
+  }
+ },
+ "_doc": "waiting poses (rad) from humanoid_pallet_plan.World._find_parks; clearance = min distance (m) from links 3.. of the waiting arm to the other arm working over the shared area"
+}

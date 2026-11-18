@@ -1,0 +1,497 @@
+{
+  "tag": "demo_smolvla_L1",
+  "config": {
+    "checkpoint": "outputs/smolvla_pallet_all/checkpoints/040000/pretrained_model",
+    "sim_script": "scripts/humanoid_pallet_sim.py",
+    "episodes": 3,
+    "seed": 200100,
+    "seeds": [
+      200100,
+      200102
+    ],
+    "exec_steps": 8,
+    "episode_seconds": 23.76,
+    "extra_sim_args": [
+      "--level",
+      "1",
+      "--split",
+      "train",
+      "--save-video",
+      "logs/videos/smolvla_L1"
+    ],
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-10-08T14:33:54",
+  "wall_seconds": 603.6,
+  "complete": true,
+  "n_episodes": 3,
+  "n_success": 0,
+  "success_rate": 0.0,
+  "wilson95": [
+    0.0,
+    0.5615
+  ],
+  "infer_ms_mean": 460.22,
+  "infer_ms_max": 1109.16,
+  "server_infer_ms_mean": 456.45,
+  "server_info": {
+    "ok": true,
+    "policy_type": "smolvla",
+    "image_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "n_action_steps": 50,
+    "state_dim": 16,
+    "action_dim": 16,
+    "uses_task": true,
+    "vram_gib": 0.863,
+    "vram_peak_gib": 0.863
+  },
+  "vram_peak_gib": 0.905,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 200100,
+      "episodes_requested": 3,
+      "episodes_total_after": 3,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 200100,
+      "success": false,
+      "steps": 594,
+      "seconds": 197.7,
+      "exec_steps": 8,
+      "episode_seconds": 23.76,
+      "max_lift_m": 0.0,
+      "lifted": false,
+      "first_in_cell_step": null,
+      "grip_min_cmd": {
+        "L": 0.0,
+        "R": 0.968
+      },
+      "arm_distance_min_m": 0.3044,
+      "n_infer": 75,
+      "infer_ms_mean": 518.43,
+      "infer_ms_max": 1109.16,
+      "server_infer_ms_mean": 514.35,
+      "level": 1,
+      "split": "train",
+      "task": "put the green flat block on the pallet",
+      "dart_noise": 0.0,
+      "parts": [
+        {
+          "shape": "flat_box",
+          "scale": 1.0,
+          "color": "green",
+          "name": "flat block",
+          "dims": [
+            0.06,
+            0.04,
+            0.02
+          ],
+          "mass_kg": 0.024,
+          "xy": [
+            0.4515,
+            -0.1788
+          ],
+          "yaw_deg": -61.5
+        }
+      ],
+      "prefill": [
+        {
+          "shape": "cyl_lying",
+          "scale": 0.8,
+          "color": "red",
+          "name": "roller",
+          "dims": [
+            0.048,
+            0.024,
+            0.024
+          ],
+          "mass_kg": 0.0109,
+          "cell": 1,
+          "xy": [
+            0.4771,
+            0.0163
+          ],
+          "yaw_deg": 10.4
+        },
+        {
+          "shape": "cyl_up",
+          "scale": 1.0,
+          "color": "green",
+          "name": "cylinder",
+          "dims": [
+            0.04,
+            0.04,
+            0.05
+          ],
+          "mass_kg": 0.0314,
+          "cell": 0,
+          "xy": [
+            0.4786,
+            -0.0704
+          ],
+          "yaw_deg": 88.1
+        }
+      ],
+      "target": 0,
+      "target_cell": 3,
+      "arm": "R",
+      "arm_reach": {
+        "L": true,
+        "R": true
+      },
+      "grasp_yaw_deg": 118.5,
+      "ik_margin": 0.169,
+      "arm_clearance_m": 0.299,
+      "dr": {
+        "dome_intensity": 1552.9666691697676,
+        "sun_intensity": 2414.6952984194536,
+        "sun_elevation_deg": 54.70584828819304,
+        "sun_azimuth_deg": -97.70428067140011,
+        "color_temperature_k": 6268.9313097157265,
+        "table_rgb": [
+          0.583,
+          0.545,
+          0.565
+        ],
+        "table_texture": "",
+        "table_roughness": 0.6351629900740609,
+        "texture_scale": 1.9026130605250366,
+        "texture_rotate_deg": 89.88271971969755,
+        "texture_translate": [
+          0.678,
+          0.053
+        ],
+        "cam_d_pos_m": [
+          0.0167,
+          -0.0063,
+          -0.0101
+        ],
+        "cam_d_rot_deg": [
+          -0.59,
+          -2.46,
+          -0.32
+        ],
+        "part_friction": [
+          1.081,
+          1.038,
+          1.095
+        ],
+        "part_mass_scale": [
+          1.146,
+          0.831,
+          0.813
+        ]
+      },
+      "pallet_center": [
+        0.5196,
+        0.0166
+      ],
+      "pallet_yaw_deg": 2.99,
+      "cell": null,
+      "cell_was_free": false,
+      "low": true,
+      "still": true,
+      "upright": true,
+      "others_on_pallet": [],
+      "end_pos": [
+        0.4515,
+        -0.1788,
+        0.01
+      ],
+      "lin_vel": 0.0,
+      "ang_vel": 0.0,
+      "rejected_layouts": 0
+    },
+    {
+      "episode": 1,
+      "seed": 200101,
+      "success": false,
+      "steps": 594,
+      "seconds": 188.2,
+      "exec_steps": 8,
+      "episode_seconds": 23.76,
+      "max_lift_m": 0.0008,
+      "lifted": false,
+      "first_in_cell_step": null,
+      "grip_min_cmd": {
+        "L": 0.815,
+        "R": 0.004
+      },
+      "arm_distance_min_m": 0.3038,
+      "n_infer": 75,
+      "infer_ms_mean": 487.58,
+      "infer_ms_max": 591.06,
+      "server_infer_ms_mean": 482.73,
+      "level": 1,
+      "split": "train",
+      "task": "put the yellow roller on the pallet",
+      "dart_noise": 0.0,
+      "parts": [
+        {
+          "shape": "cyl_lying",
+          "scale": 1.0,
+          "color": "yellow",
+          "name": "roller",
+          "dims": [
+            0.06,
+            0.03,
+            0.03
+          ],
+          "mass_kg": 0.0212,
+          "xy": [
+            0.4819,
+            -0.2019
+          ],
+          "yaw_deg": 143.5
+        }
+      ],
+      "prefill": [
+        {
+          "shape": "box",
+          "scale": 1.2,
+          "color": "orange",
+          "name": "cube",
+          "dims": [
+            0.048,
+            0.048,
+            0.048
+          ],
+          "mass_kg": 0.0553,
+          "cell": 0,
+          "xy": [
+            0.4739,
+            -0.0822
+          ],
+          "yaw_deg": 91.9
+        }
+      ],
+      "target": 0,
+      "target_cell": 3,
+      "arm": "R",
+      "arm_reach": {
+        "L": true,
+        "R": true
+      },
+      "grasp_yaw_deg": -36.5,
+      "ik_margin": 0.03,
+      "arm_clearance_m": 0.301,
+      "dr": {
+        "dome_intensity": 1588.0886168741595,
+        "sun_intensity": 1230.1250305965798,
+        "sun_elevation_deg": 58.57763710069352,
+        "sun_azimuth_deg": -113.30320361067827,
+        "color_temperature_k": 5807.088663124286,
+        "table_rgb": [
+          0.739,
+          0.74,
+          0.676
+        ],
+        "table_texture": "",
+        "table_roughness": 0.4321957752683906,
+        "texture_scale": 1.5335891469443417,
+        "texture_rotate_deg": 106.2706441385836,
+        "texture_translate": [
+          0.069,
+          0.967
+        ],
+        "cam_d_pos_m": [
+          0.0196,
+          -0.0137,
+          0.0113
+        ],
+        "cam_d_rot_deg": [
+          2.73,
+          0.46,
+          -0.42
+        ],
+        "part_friction": [
+          0.991,
+          0.861
+        ],
+        "part_mass_scale": [
+          0.899,
+          0.874
+        ]
+      },
+      "pallet_center": [
+        0.5106,
+        0.0103
+      ],
+      "pallet_yaw_deg": 1.48,
+      "cell": null,
+      "cell_was_free": false,
+      "low": true,
+      "still": true,
+      "upright": true,
+      "others_on_pallet": [],
+      "end_pos": [
+        0.5222,
+        -0.2073,
+        0.0145
+      ],
+      "lin_vel": 0.0,
+      "ang_vel": 0.0,
+      "rejected_layouts": 0
+    },
+    {
+      "episode": 2,
+      "seed": 200102,
+      "success": false,
+      "steps": 594,
+      "seconds": 154.9,
+      "exec_steps": 8,
+      "episode_seconds": 23.76,
+      "max_lift_m": 0.0243,
+      "lifted": false,
+      "first_in_cell_step": null,
+      "grip_min_cmd": {
+        "L": 0.0,
+        "R": 0.941
+      },
+      "arm_distance_min_m": 0.2861,
+      "n_infer": 75,
+      "infer_ms_mean": 374.64,
+      "infer_ms_max": 582.41,
+      "server_infer_ms_mean": 372.26,
+      "level": 1,
+      "split": "train",
+      "task": "put the blue roller on the pallet",
+      "dart_noise": 0.0,
+      "parts": [
+        {
+          "shape": "cyl_lying",
+          "scale": 1.0,
+          "color": "blue",
+          "name": "roller",
+          "dims": [
+            0.06,
+            0.03,
+            0.03
+          ],
+          "mass_kg": 0.0212,
+          "xy": [
+            0.4537,
+            0.2012
+          ],
+          "yaw_deg": 60.7
+        }
+      ],
+      "prefill": [
+        {
+          "shape": "box",
+          "scale": 0.8,
+          "color": "green",
+          "name": "cube",
+          "dims": [
+            0.032,
+            0.032,
+            0.032
+          ],
+          "mass_kg": 0.0164,
+          "cell": 1,
+          "xy": [
+            0.4818,
+            -0.0051
+          ],
+          "yaw_deg": -178.9
+        },
+        {
+          "shape": "cyl_lying",
+          "scale": 1.0,
+          "color": "green",
+          "name": "roller",
+          "dims": [
+            0.06,
+            0.03,
+            0.03
+          ],
+          "mass_kg": 0.0212,
+          "cell": 0,
+          "xy": [
+            0.4794,
+            -0.0809
+          ],
+          "yaw_deg": 94.5
+        }
+      ],
+      "target": 0,
+      "target_cell": 2,
+      "arm": "L",
+      "arm_reach": {
+        "L": true,
+        "R": true
+      },
+      "grasp_yaw_deg": 60.7,
+      "ik_margin": 0.151,
+      "arm_clearance_m": 0.245,
+      "dr": {
+        "dome_intensity": 1412.3807216917526,
+        "sun_intensity": 1418.3776291506797,
+        "sun_elevation_deg": 49.85070812980953,
+        "sun_azimuth_deg": -104.82594797720749,
+        "color_temperature_k": 6220.4657514655955,
+        "table_rgb": [
+          0.57,
+          0.541,
+          0.428
+        ],
+        "table_texture": "",
+        "table_roughness": 0.44016763673718495,
+        "texture_scale": 1.6262059980270471,
+        "texture_rotate_deg": 97.45333793642165,
+        "texture_translate": [
+          0.471,
+          0.478
+        ],
+        "cam_d_pos_m": [
+          -0.0116,
+          0.0018,
+          0.0158
+        ],
+        "cam_d_rot_deg": [
+          1.81,
+          -1.78,
+          -0.09
+        ],
+        "part_friction": [
+          0.867,
+          1.193,
+          0.873
+        ],
+        "part_mass_scale": [
+          1.21,
+          0.866,
+          1.121
+        ]
+      },
+      "pallet_center": [
+        0.5172,
+        0.0039
+      ],
+      "pallet_yaw_deg": 1.68,
+      "cell": null,
+      "cell_was_free": false,
+      "low": true,
+      "still": true,
+      "upright": true,
+      "others_on_pallet": [],
+      "end_pos": [
+        0.5152,
+        0.1538,
+        0.0147
+      ],
+      "lin_vel": 0.0,
+      "ang_vel": 0.0,
+      "rejected_layouts": 0
+    }
+  ]
+}

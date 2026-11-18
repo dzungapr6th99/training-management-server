@@ -1,0 +1,6 @@
+# local environment and generated state: recreated by studio.bat / studio.sh
+.venv/
+__pycache__/
+*.pyc
+# the studio database holds robot/model edits, assignments and job history of THIS machine
+data/

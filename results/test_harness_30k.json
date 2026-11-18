@@ -1,0 +1,191 @@
+{
+  "tag": "test_harness_30k",
+  "config": {
+    "checkpoint": "outputs/smolvla_yellowarm_cube_in_box/checkpoints/030000/pretrained_model",
+    "sim_script": "D:\\Isaac\\smolvla-openarm\\scripts\\yellowarm_sim.py",
+    "episodes": 5,
+    "seed": 1000,
+    "seeds": [
+      1000,
+      1004
+    ],
+    "exec_steps": 8,
+    "extra_sim_args": [],
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-10-04T17:10:21",
+  "wall_seconds": 262.5,
+  "complete": true,
+  "n_episodes": 5,
+  "n_success": 5,
+  "success_rate": 1.0,
+  "wilson95": [
+    0.5655,
+    1.0
+  ],
+  "infer_ms_mean": 258.51,
+  "infer_ms_max": 564.49,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 1000,
+      "episodes_requested": 5,
+      "episodes_total_after": 1,
+      "end": "server died (code 4294967295)"
+    },
+    {
+      "attempt": 1,
+      "first_seed": 1001,
+      "episodes_requested": 4,
+      "episodes_total_after": 5,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 1000,
+      "success": true,
+      "steps": 250,
+      "seconds": 37.05,
+      "first_in_box_step": 111,
+      "cube_lifted": true,
+      "cube_max_z": 0.1478,
+      "end_dist_to_box": 0.0192,
+      "cube_start": [
+        0.2876,
+        0.1761
+      ],
+      "cube_yaw_deg": 4.7,
+      "box": [
+        0.3443,
+        -0.2234
+      ],
+      "cube_end": [
+        0.3363,
+        -0.2409,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 266.18,
+      "infer_ms_max": 564.49
+    },
+    {
+      "episode": 0,
+      "seed": 1001,
+      "success": true,
+      "steps": 250,
+      "seconds": 36.62,
+      "first_in_box_step": 102,
+      "cube_lifted": true,
+      "cube_max_z": 0.1378,
+      "end_dist_to_box": 0.0216,
+      "cube_start": [
+        0.3712,
+        -0.0204
+      ],
+      "cube_yaw_deg": -31.3,
+      "box": [
+        0.3625,
+        -0.3175
+      ],
+      "cube_end": [
+        0.3597,
+        -0.2961,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 262.88,
+      "infer_ms_max": 563.79
+    },
+    {
+      "episode": 1,
+      "seed": 1002,
+      "success": true,
+      "steps": 250,
+      "seconds": 35.39,
+      "first_in_box_step": 85,
+      "cube_lifted": true,
+      "cube_max_z": 0.1248,
+      "end_dist_to_box": 0.0133,
+      "cube_start": [
+        0.2649,
+        -0.0141
+      ],
+      "cube_yaw_deg": 30.6,
+      "box": [
+        0.3162,
+        -0.2628
+      ],
+      "cube_end": [
+        0.3227,
+        -0.2512,
+        0.03
+      ],
+      "ready_err_mm": 0.1,
+      "n_infer": 32,
+      "infer_ms_mean": 253.37,
+      "infer_ms_max": 271.97
+    },
+    {
+      "episode": 2,
+      "seed": 1003,
+      "success": true,
+      "steps": 250,
+      "seconds": 35.84,
+      "first_in_box_step": 106,
+      "cube_lifted": true,
+      "cube_max_z": 0.1547,
+      "end_dist_to_box": 0.0394,
+      "cube_start": [
+        0.3017,
+        0.1293
+      ],
+      "cube_yaw_deg": 42.4,
+      "box": [
+        0.2776,
+        -0.2789
+      ],
+      "cube_end": [
+        0.2551,
+        -0.3113,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 254.78,
+      "infer_ms_max": 276.09
+    },
+    {
+      "episode": 3,
+      "seed": 1004,
+      "success": true,
+      "steps": 250,
+      "seconds": 36.01,
+      "first_in_box_step": 109,
+      "cube_lifted": true,
+      "cube_max_z": 0.1551,
+      "end_dist_to_box": 0.0483,
+      "cube_start": [
+        0.2501,
+        0.1181
+      ],
+      "cube_yaw_deg": -20.3,
+      "box": [
+        0.2402,
+        -0.2992
+      ],
+      "cube_end": [
+        0.2065,
+        -0.3337,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 255.36,
+      "infer_ms_max": 268.21
+    }
+  ]
+}

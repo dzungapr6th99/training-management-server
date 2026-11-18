@@ -1,0 +1,262 @@
+{
+ "_doc": [
+  "Upper-body humanoid: rigid torso + 2 YellowArm + fixed head camera. Every length in metres, angles in degrees.",
+  "World frame: table top at z = 0, torso centre at x = y = 0, +X forward (towards the table), +Y left, +Z up.",
+  "mount.axis_left = direction of the LEFT arm's base +Z (out of the mounting plate); the right arm mirrors it (y -> -y).",
+  "mount.roll_*_deg turns each arm about its own base axis (shifts where joint1's 16 deg dead band points).",
+  "mount.separation = distance between the two mounting-plate centres; mount.height = plate centre above the table.",
+  "Arm limits: effort from the URDF; velocity = min(URDF, real moteus setup in YellowArmSim/Jetson/ws_receiver_arm_v3.py:",
+  "velocity_limit 1.0 motor rev/s / reduction 10.76 (j1), 8.14 (j2-j5, differential pairs), 4.1 (j6-j7)).",
+  "The YellowArm USD ships with looser drives (j1 200 Nm, j2-j3 100 Nm); the humanoid sim overrides them with these.",
+  "'selected' is filled by humanoid_reach_probe.py --write-selected ONLY after the user approves a configuration."
+ ],
+ "torso": {
+  "depth": 0.18,
+  "width": 0.25,
+  "min_width": 0.12,
+  "shoulder_clearance": 0.115,
+  "color": [
+   0.35,
+   0.37,
+   0.4
+  ],
+  "_note": "lateral: torso width = separation (plates on its sides). Other mounts hang from a shoulder bar and the torso narrows to separation - 2 * shoulder_clearance (link1 housing half-width 0.093 + 0.022), between min_width and width"
+ },
+ "table": {
+  "depth": 0.7,
+  "width": 1.4,
+  "height": 0.75,
+  "usable_margin": 0.03
+ },
+ "head_camera": {
+  "x": 0.04,
+  "height_above_mount": 0.25,
+  "fov_deg": 90.0,
+  "resolution": 256,
+  "_note": "pitch is chosen per configuration so the shared workspace is centred; fov is horizontal = vertical (square image)"
+ },
+ "arm_limits": {
+  "joints": [
+   "joint1",
+   "joint2",
+   "joint3",
+   "joint4",
+   "joint5",
+   "joint6",
+   "joint7"
+  ],
+  "lower_rad": [
+   -4.57276,
+   -0.61087,
+   -3.00197,
+   -2.35619,
+   -3.00197,
+   -1.5708,
+   -3.49066
+  ],
+  "upper_rad": [
+   1.43118,
+   2.530721,
+   3.00197,
+   1.22173,
+   3.00197,
+   1.5708,
+   2.40855
+  ],
+  "effort_nm": [
+   22.8,
+   29.6,
+   29.6,
+   29.6,
+   29.6,
+   29.6,
+   29.6
+  ],
+  "velocity_urdf_rad_s": [
+   1.5708,
+   1.5708,
+   1.5708,
+   1.5708,
+   1.5708,
+   1.5708,
+   1.5708
+  ],
+  "velocity_hw_rad_s": [
+   0.584,
+   0.772,
+   0.772,
+   0.772,
+   0.772,
+   1.532,
+   1.532
+  ],
+  "velocity_used_rad_s": [
+   0.584,
+   0.772,
+   0.772,
+   0.772,
+   0.772,
+   1.532,
+   1.532
+  ],
+  "gripper": {
+   "open": -0.022,
+   "closed": 0.015,
+   "max_force_n": 29.6,
+   "max_velocity_m_s": 0.1,
+   "max_opening_mm": 75
+  },
+  "payload_kg": 0.15,
+  "torque_margin": 0.8
+ },
+ "candidates": {
+  "down": {
+   "axis_left": [
+    0.0,
+    0.0,
+    -1.0
+   ],
+   "_desc": "arm hangs straight down from a shoulder bar"
+  },
+  "lateral": {
+   "axis_left": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "_desc": "arm sticks out sideways from the torso side (as the YellowArm USD is mounted)"
+  },
+  "tilt45": {
+   "axis_left": [
+    0.0,
+    0.70711,
+    -0.70711
+   ],
+   "_desc": "sideways and 45 deg down"
+  },
+  "forward45": {
+   "axis_left": [
+    0.70711,
+    0.0,
+    -0.70711
+   ],
+   "_desc": "forward and 45 deg down"
+  }
+ },
+ "search": {
+  "heights": [
+   0.25,
+   0.3,
+   0.35,
+   0.4,
+   0.45,
+   0.5,
+   0.55,
+   0.6
+  ],
+  "separations": [
+   0.25,
+   0.35,
+   0.45,
+   0.55,
+   0.65
+  ],
+  "gaps": [
+   0.0,
+   0.05,
+   0.1
+  ],
+  "rolls_deg": [
+   0,
+   90,
+   180,
+   270
+  ],
+  "grasp_z": 0.035,
+  "approach_z": 0.15,
+  "grasp_yaws_deg": [
+   -45,
+   0,
+   45
+  ],
+  "grid_step": 0.025
+ },
+ "selected": {
+  "_approved": "2026-10-05 by the user (PLAN.md 2.0)",
+  "mount": "forward45",
+  "axis_left": [
+   0.70711,
+   0.0,
+   -0.70711
+  ],
+  "roll_left_deg": 90,
+  "roll_right_deg": 90,
+  "mount_height": 0.45,
+  "separation": 0.55,
+  "torso_table_gap": 0.05,
+  "torso_width": 0.25,
+  "torso_depth": 0.18,
+  "table_edge_x": 0.14,
+  "head_camera": {
+   "pos": [
+    0.105,
+    0.0,
+    0.7
+   ],
+   "head_box_center_x": 0.04,
+   "pitch_deg": 63.5,
+   "fov_deg": 55,
+   "resolution": 256,
+   "fov_needed_nominal_deg": 40.1,
+   "fov_needed_worst_deg": 50.5,
+   "mount_error_checked": {
+    "pos_m": 0.02,
+    "rot_deg": 3.0
+   },
+   "worst_errors": [
+    {
+     "d_pos": [
+      0.02,
+      0.02,
+      -0.02
+     ],
+     "d_rot_deg": [
+      0.0,
+      -3.0,
+      3.0
+     ]
+    },
+    {
+     "d_pos": [
+      0.02,
+      -0.02,
+      -0.02
+     ],
+     "d_rot_deg": [
+      0.0,
+      -3.0,
+      -3.0
+     ]
+    }
+   ],
+   "fov_candidates": [
+    45,
+    55,
+    65
+   ]
+  },
+  "workspace": {
+   "file": "scripts/data/humanoid_workspace.npz",
+   "area_shared_m2": 0.1375,
+   "area_union_m2": 0.6706,
+   "shared_x_range": [
+    0.245,
+    0.695
+   ],
+   "shared_y_range": [
+    -0.25,
+    0.25
+   ]
+  }
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "generated_by": "scripts/train_pipeline.py",
+ "run": "groot_pallet_all",
+ "model": "groot",
+ "init": "nvidia/GR00T-N1.7-3B (LLM + vision + DiT frozen, bf16)",
+ "dataset": "datasets/lerobot/yellowarm_pallet_all",
+ "steps": 20000,
+ "batch_size": 8,
+ "mode": "fresh",
+ "exit_code": 0,
+ "finished": true,
+ "wall_hours": 2.383,
+ "steps_per_s": 2.33,
+ "peak_mem_gb_logged": 12.73,
+ "last_logged_step": "20K",
+ "final_loss_mean_last5_logs": 0.027,
+ "loss_first_log": 1.276,
+ "checkpoints": [
+  "005000",
+  "010000",
+  "015000",
+  "020000"
+ ],
+ "command": "D:\\Isaac\\smolvla-openarm\\env\\Scripts\\lerobot-train.exe --policy.type=groot --policy.base_model_path=D:\\Isaac\\smolvla-openarm\\models\\hf_home\\hub\\models--nvidia--GR00T-N1.7-3B\\snapshots\\2fc962b973bccdd5d8ce4f67cc63b264d6886495 --policy.embodiment_tag=new_embodiment --policy.use_relative_actions=false --policy.use_bf16=true --policy.device=cuda --policy.tune_diffusion_model=false --policy.model_params_fp32=false --policy.push_to_hub=false --dataset.repo_id=local/yellowarm_pallet_all --dataset.root=D:\\Isaac\\smolvla-openarm\\datasets\\lerobot\\yellowarm_pallet_all --dataset.video_backend=pyav --batch_size=8 --num_workers=4 --log_freq=200 --wandb.enable=false --steps=20000 --save_freq=5000 --output_dir=D:\\Isaac\\smolvla-openarm\\outputs\\groot_pallet_all --job_name=groot_pallet_all",
+ "log": "logs/train_groot_pallet_all.log"
+}

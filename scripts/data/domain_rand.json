@@ -1,0 +1,34 @@
+{
+ "_doc": [
+  "Domain randomization ranges for humanoid_pallet_sim.py (PLAN.md 2.5). On by default (--dr) for data generation and",
+  "evaluation; --no-dr gives the nominal scene (dome light 1200, plain table, nominal head camera, nominal part physics).",
+  "Each episode draws its values from its own stream (seed, 2025), so a seed has the same layout with and without DR.",
+  "Uniform ranges [lo, hi] unless noted. Part colours are NOT randomized: they name the parts in the task string."
+ ],
+ "light": {
+  "dome_intensity": [500.0, 1800.0],
+  "distant_intensity": [0.0, 2500.0],
+  "distant_elevation_deg": [30.0, 85.0],
+  "distant_azimuth_deg": [-180.0, 180.0],
+  "color_temperature_k": [4000.0, 7500.0]
+ },
+ "table": {
+  "_doc": "plain colour (HSV) or one of scripts/data/textures/table_*.png (make_table_textures.py) tinted by that colour",
+  "texture_prob": 0.6,
+  "hue": [0.0, 1.0],
+  "saturation": [0.0, 0.35],
+  "value": [0.35, 0.95],
+  "roughness": [0.3, 0.9],
+  "texture_scale": [0.5, 2.0]
+ },
+ "head_camera": {
+  "_doc": "mounting error of the head camera, per axis: position +/- d_pos_m, rotation (roll, pitch, yaw in the camera frame) +/- d_rot_deg; same box as the FOV analysis of 2026-10-05 (FOV 55 deg keeps the work area in view)",
+  "d_pos_m": 0.02,
+  "d_rot_deg": 3.0
+ },
+ "parts": {
+  "_doc": "per part: friction coefficient (static = dynamic) and mass scale (inertia scaled with it)",
+  "friction": [0.7, 1.2],
+  "mass_scale": [0.8, 1.25]
+ }
+}

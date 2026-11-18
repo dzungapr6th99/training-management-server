@@ -1,0 +1,27 @@
+{
+ "generated_by": "scripts/train_pipeline.py",
+ "run": "act_pallet_all",
+ "model": "act",
+ "init": "scratch (lerobot defaults)",
+ "dataset": "datasets/lerobot/yellowarm_pallet_all",
+ "steps": 100000,
+ "batch_size": 8,
+ "mode": "resume",
+ "exit_code": 0,
+ "finished": true,
+ "wall_hours": 1.825,
+ "steps_per_s": null,
+ "peak_mem_gb_logged": 1.6,
+ "last_logged_step": "100K",
+ "final_loss_mean_last5_logs": 0.0454,
+ "loss_first_log": 0.109,
+ "checkpoints": [
+  "020000",
+  "040000",
+  "060000",
+  "080000",
+  "100000"
+ ],
+ "command": "D:\\Isaac\\smolvla-openarm\\env\\Scripts\\lerobot-train.exe --config_path=D:\\Isaac\\smolvla-openarm\\outputs\\act_pallet_all\\checkpoints\\last\\pretrained_model\\train_config.json --resume=true",
+ "log": "logs/train_act_pallet_all_resume.log"
+}

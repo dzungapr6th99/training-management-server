@@ -1,0 +1,15 @@
+{
+ "generated_by": "scripts/dual_orca_pipeline.py",
+ "run": "act_dual_orca_pick_smoke",
+ "model": "act",
+ "init": "scratch",
+ "dataset": "datasets\\lerobot\\dual_orca_pick_smoke_all",
+ "steps": 300,
+ "batch_size": 8,
+ "wall_hours": 0.02,
+ "finished": true,
+ "loss_first_log": 5.899,
+ "final_loss_mean_last5_logs": 5.899,
+ "command": "D:\\AI-Agent-Project\\My-Humanoid-Hand\\smolvla-openarm\\env\\python.exe -m lerobot.scripts.lerobot_train --policy.type=act --policy.device=cuda --policy.push_to_hub=false --dataset.repo_id=local/dual_orca_pick_smoke_all --dataset.root=D:\\AI-Agent-Project\\My-Humanoid-Hand\\smolvla-openarm\\datasets\\lerobot\\dual_orca_pick_smoke_all --dataset.video_backend=pyav --batch_size=8 --num_workers=4 --log_freq=200 --wandb.enable=false --steps=300 --save_freq=300 --output_dir=D:\\AI-Agent-Project\\My-Humanoid-Hand\\smolvla-openarm\\outputs\\act_dual_orca_pick_smoke --job_name=act_dual_orca_pick_smoke",
+ "log": "logs/train_act_dual_orca_pick_smoke.log"
+}

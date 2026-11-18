@@ -1,0 +1,108 @@
+{
+  "tag": "eval_act_dual_orca_pick_smoke_0k",
+  "config": {
+    "checkpoint": "D:\\AI-Agent-Project\\My-Humanoid-Hand\\smolvla-openarm\\outputs\\act_dual_orca_pick_smoke\\checkpoints\\000300\\pretrained_model",
+    "sim_script": "D:\\AI-Agent-Project\\My-Humanoid-Hand\\smolvla-openarm\\scripts\\dual_orca_pick_sim.py",
+    "episodes": 3,
+    "seed": 100000,
+    "seeds": [
+      100000,
+      100002
+    ],
+    "exec_steps": 10,
+    "episode_seconds": 8.0,
+    "extra_sim_args": [],
+    "server_args": "",
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-11-04T11:46:20",
+  "wall_seconds": 165.3,
+  "complete": true,
+  "n_episodes": 3,
+  "n_success": 0,
+  "success_rate": 0.0,
+  "wilson95": [
+    0.0,
+    0.5615
+  ],
+  "infer_ms_mean": 25.3,
+  "infer_ms_max": 299.88,
+  "server_infer_ms_mean": null,
+  "server_info": {
+    "ok": true,
+    "policy_type": "act",
+    "image_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "n_action_steps": 100,
+    "state_dim": 18,
+    "action_dim": 18,
+    "uses_task": false,
+    "noise": "random",
+    "rtc_horizon": 0,
+    "vram_gib": 0.193,
+    "vram_peak_gib": 0.193
+  },
+  "vram_peak_gib": 0.217,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 100000,
+      "episodes_requested": 3,
+      "episodes_total_after": 3,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 100000,
+      "success": false,
+      "steps": 200,
+      "seconds": 41.9,
+      "exec_steps": 10,
+      "episode_seconds": 8.0,
+      "max_lift_m": 0.0027,
+      "n_infer": 20,
+      "infer_ms_mean": 34.52,
+      "infer_ms_max": 299.88,
+      "task": "pick up the blue cube",
+      "lift_m": 0.0,
+      "cube_to_hand_m": 0.1217
+    },
+    {
+      "episode": 1,
+      "seed": 100001,
+      "success": false,
+      "steps": 200,
+      "seconds": 39.9,
+      "exec_steps": 10,
+      "episode_seconds": 8.0,
+      "max_lift_m": 0.0088,
+      "n_infer": 20,
+      "infer_ms_mean": 20.23,
+      "infer_ms_max": 30.3,
+      "task": "pick up the red cube",
+      "lift_m": 0.0,
+      "cube_to_hand_m": 0.1061
+    },
+    {
+      "episode": 2,
+      "seed": 100002,
+      "success": false,
+      "steps": 200,
+      "seconds": 47.1,
+      "exec_steps": 10,
+      "episode_seconds": 8.0,
+      "max_lift_m": 0.0059,
+      "n_infer": 20,
+      "infer_ms_mean": 21.15,
+      "infer_ms_max": 27.41,
+      "task": "pick up the green cube",
+      "lift_m": 0.0,
+      "cube_to_hand_m": 0.097
+    }
+  ]
+}

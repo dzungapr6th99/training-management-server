@@ -1,0 +1,210 @@
+{
+  "tag": "verify_pathfix_5ep",
+  "config": {
+    "checkpoint": "outputs\\smolvla_yellowarm_cube_in_box\\checkpoints\\030000\\pretrained_model",
+    "sim_script": "D:\\AI-Agent-Project\\My-Humanoid-Hand\\smolvla-openarm\\scripts\\yellowarm_sim.py",
+    "episodes": 5,
+    "seed": 1000,
+    "seeds": [
+      1000,
+      1004
+    ],
+    "exec_steps": 8,
+    "episode_seconds": 10.0,
+    "extra_sim_args": [],
+    "server_args": "",
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-11-03T14:21:16",
+  "wall_seconds": 520.7,
+  "complete": true,
+  "n_episodes": 5,
+  "n_success": 4,
+  "success_rate": 0.8,
+  "wilson95": [
+    0.3755,
+    0.9638
+  ],
+  "infer_ms_mean": 320.7,
+  "infer_ms_max": 715.65,
+  "server_infer_ms_mean": 318.17,
+  "server_info": {
+    "ok": true,
+    "policy_type": "smolvla",
+    "image_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "n_action_steps": 50,
+    "state_dim": 8,
+    "action_dim": 8,
+    "uses_task": true,
+    "noise": "random",
+    "rtc_horizon": 0,
+    "vram_gib": 0.863,
+    "vram_peak_gib": 0.863
+  },
+  "vram_peak_gib": 0.905,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 1000,
+      "episodes_requested": 5,
+      "episodes_total_after": 5,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 1000,
+      "success": false,
+      "steps": 250,
+      "seconds": 219.32,
+      "first_in_box_step": null,
+      "cube_lifted": true,
+      "cube_max_z": 0.093,
+      "end_dist_to_box": 0.3848,
+      "cube_start": [
+        0.2876,
+        0.1761
+      ],
+      "cube_yaw_deg": 4.7,
+      "box": [
+        0.3443,
+        -0.2234
+      ],
+      "cube_end": [
+        0.2761,
+        0.1554,
+        0.02
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 333.26,
+      "infer_ms_max": 715.65,
+      "server_infer_ms_mean": 330.67
+    },
+    {
+      "episode": 1,
+      "seed": 1001,
+      "success": true,
+      "steps": 250,
+      "seconds": 47.04,
+      "first_in_box_step": 80,
+      "cube_lifted": true,
+      "cube_max_z": 0.1242,
+      "end_dist_to_box": 0.0128,
+      "cube_start": [
+        0.3712,
+        -0.0204
+      ],
+      "cube_yaw_deg": -31.3,
+      "box": [
+        0.3625,
+        -0.3175
+      ],
+      "cube_end": [
+        0.3633,
+        -0.3303,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 317.04,
+      "infer_ms_max": 370.89,
+      "server_infer_ms_mean": 314.13
+    },
+    {
+      "episode": 2,
+      "seed": 1002,
+      "success": true,
+      "steps": 250,
+      "seconds": 46.9,
+      "first_in_box_step": 91,
+      "cube_lifted": true,
+      "cube_max_z": 0.12,
+      "end_dist_to_box": 0.0245,
+      "cube_start": [
+        0.2649,
+        -0.0141
+      ],
+      "cube_yaw_deg": 30.6,
+      "box": [
+        0.3162,
+        -0.2628
+      ],
+      "cube_end": [
+        0.317,
+        -0.2873,
+        0.03
+      ],
+      "ready_err_mm": 0.1,
+      "n_infer": 32,
+      "infer_ms_mean": 319.0,
+      "infer_ms_max": 384.6,
+      "server_infer_ms_mean": 316.84
+    },
+    {
+      "episode": 3,
+      "seed": 1003,
+      "success": true,
+      "steps": 250,
+      "seconds": 47.28,
+      "first_in_box_step": 108,
+      "cube_lifted": true,
+      "cube_max_z": 0.1893,
+      "end_dist_to_box": 0.0133,
+      "cube_start": [
+        0.3017,
+        0.1293
+      ],
+      "cube_yaw_deg": 42.4,
+      "box": [
+        0.2776,
+        -0.2789
+      ],
+      "cube_end": [
+        0.2808,
+        -0.2918,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 321.16,
+      "infer_ms_max": 396.17,
+      "server_infer_ms_mean": 318.0
+    },
+    {
+      "episode": 4,
+      "seed": 1004,
+      "success": true,
+      "steps": 250,
+      "seconds": 47.1,
+      "first_in_box_step": 114,
+      "cube_lifted": true,
+      "cube_max_z": 0.1541,
+      "end_dist_to_box": 0.0229,
+      "cube_start": [
+        0.2501,
+        0.1181
+      ],
+      "cube_yaw_deg": -20.3,
+      "box": [
+        0.2402,
+        -0.2992
+      ],
+      "cube_end": [
+        0.2183,
+        -0.2926,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 313.03,
+      "infer_ms_max": 380.92,
+      "server_infer_ms_mean": 311.22
+    }
+  ]
+}

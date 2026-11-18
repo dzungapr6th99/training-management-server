@@ -1,0 +1,3 @@
+node_modules/
+# build output: studio.bat / studio.sh build it on first run (commit it instead if the target machine has no Node)
+dist/

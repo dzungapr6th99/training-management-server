@@ -1,0 +1,145 @@
+{
+ "checkpoint": "D:\\Isaac\\smolvla-openarm\\outputs\\smolvla_pallet_all\\checkpoints\\040000\\pretrained_model",
+ "episodes": [
+  0,
+  40,
+  80,
+  170,
+  210,
+  300,
+  340,
+  380,
+  470,
+  510
+ ],
+ "exec_steps": 16,
+ "guidance": 10.0,
+ "units": "mrad",
+ "rows": {
+  "expert": {
+   "jerk_p99": 3.3,
+   "jerk_mean": 0.36,
+   "rev_per_s": 0.01
+  },
+  "random": {
+   "jerk_p99": 59.0,
+   "jerk_mean": 8.33,
+   "rev_per_s": 9.78,
+   "jerk_p99_join": 157.9,
+   "jerk_p99_inner": 43.7,
+   "switch_mean": 17.8,
+   "err_mean": 11.8,
+   "infer_ms_mean": 320.0
+  },
+  "random+smooth": {
+   "jerk_p99": 14.7,
+   "jerk_mean": 4.42,
+   "rev_per_s": 7.83,
+   "jerk_p99_join": 14.7,
+   "jerk_p99_inner": 14.7,
+   "switch_mean": 17.8,
+   "err_mean": 13.5,
+   "infer_ms_mean": 320.0
+  },
+  "fixed": {
+   "jerk_p99": 56.5,
+   "jerk_mean": 8.41,
+   "rev_per_s": 9.96,
+   "jerk_p99_join": 163.6,
+   "jerk_p99_inner": 42.3,
+   "switch_mean": 17.5,
+   "err_mean": 12.1,
+   "infer_ms_mean": 318.0
+  },
+  "fixed+smooth": {
+   "jerk_p99": 14.7,
+   "jerk_mean": 4.44,
+   "rev_per_s": 7.99,
+   "jerk_p99_join": 14.7,
+   "jerk_p99_inner": 14.7,
+   "switch_mean": 17.5,
+   "err_mean": 13.6,
+   "infer_ms_mean": 318.0
+  },
+  "rtc16": {
+   "jerk_p99": 35.1,
+   "jerk_mean": 5.21,
+   "rev_per_s": 8.2,
+   "jerk_p99_join": 41.4,
+   "jerk_p99_inner": 34.1,
+   "switch_mean": 3.3,
+   "err_mean": 16.6,
+   "infer_ms_mean": 405.0
+  },
+  "rtc16+smooth": {
+   "jerk_p99": 14.7,
+   "jerk_mean": 3.97,
+   "rev_per_s": 7.63,
+   "jerk_p99_join": 14.7,
+   "jerk_p99_inner": 14.7,
+   "switch_mean": 3.3,
+   "err_mean": 17.1,
+   "infer_ms_mean": 405.0
+  },
+  "rtc16f": {
+   "jerk_p99": 34.0,
+   "jerk_mean": 5.18,
+   "rev_per_s": 8.11,
+   "jerk_p99_join": 35.7,
+   "jerk_p99_inner": 33.6,
+   "switch_mean": 3.4,
+   "err_mean": 19.1,
+   "infer_ms_mean": 406.0
+  },
+  "rtc16f+smooth": {
+   "jerk_p99": 14.7,
+   "jerk_mean": 3.95,
+   "rev_per_s": 7.5,
+   "jerk_p99_join": 14.7,
+   "jerk_p99_inner": 14.7,
+   "switch_mean": 3.4,
+   "err_mean": 19.5,
+   "infer_ms_mean": 406.0
+  },
+  "rtc32": {
+   "jerk_p99": 30.7,
+   "jerk_mean": 4.25,
+   "rev_per_s": 6.93,
+   "jerk_p99_join": 34.4,
+   "jerk_p99_inner": 30.2,
+   "switch_mean": 2.3,
+   "err_mean": 21.1,
+   "infer_ms_mean": 405.0
+  },
+  "rtc32+smooth": {
+   "jerk_p99": 14.7,
+   "jerk_mean": 3.28,
+   "rev_per_s": 6.52,
+   "jerk_p99_join": 14.7,
+   "jerk_p99_inner": 14.7,
+   "switch_mean": 2.3,
+   "err_mean": 21.5,
+   "infer_ms_mean": 405.0
+  },
+  "rtc32f": {
+   "jerk_p99": 33.7,
+   "jerk_mean": 4.45,
+   "rev_per_s": 7.13,
+   "jerk_p99_join": 39.5,
+   "jerk_p99_inner": 32.6,
+   "switch_mean": 2.7,
+   "err_mean": 26.7,
+   "infer_ms_mean": 406.0
+  },
+  "rtc32f+smooth": {
+   "jerk_p99": 14.7,
+   "jerk_mean": 3.4,
+   "rev_per_s": 6.57,
+   "jerk_p99_join": 14.7,
+   "jerk_p99_inner": 14.7,
+   "switch_mean": 2.7,
+   "err_mean": 27.2,
+   "infer_ms_mean": 406.0
+  }
+ }
+}

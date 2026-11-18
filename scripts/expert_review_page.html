@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Expert Episode Viewer</title>
+<style>
+:root{--bg:#f6f6f4;--panel:#fff;--fg:#1d1d1b;--muted:#6b6b66;--line:#e2e1dc;--acc:#2f6fd6;--sel:#e8f0fc;--warn:#b5520f}
+@media (prefers-color-scheme:dark){:root{--bg:#161615;--panel:#1f1f1d;--fg:#ecebe6;--muted:#9a9993;--line:#33332f;--acc:#7aa7f0;--sel:#24324a;--warn:#f0a060}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.4 system-ui,Segoe UI,sans-serif;height:100vh;display:flex;flex-direction:column}
+header{padding:10px 16px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;background:var(--panel)}
+header h1{font-size:15px;margin:0 8px 0 0}
+label{color:var(--muted);font-size:12px;display:flex;gap:4px;align-items:center}
+select,input{font:inherit;font-size:13px;padding:3px 6px;border:1px solid var(--line);border-radius:5px;background:var(--bg);color:var(--fg)}
+#count{color:var(--muted);font-size:12px;margin-left:auto}
+main{flex:1;display:flex;min-height:0}
+#list{width:390px;overflow:auto;border-right:1px solid var(--line);background:var(--panel)}
+.row{display:grid;grid-template-columns:46px 1fr auto;gap:6px;padding:6px 12px;border-bottom:1px solid var(--line);cursor:pointer}
+.row:hover{background:var(--bg)}.row.on{background:var(--sel)}
+.ep{font-variant-numeric:tabular-nums;font-weight:600}
+.task{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tags{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums;text-align:right}
+.sortv{color:var(--acc)}
+#view{flex:1;overflow:auto;padding:16px}
+video{width:100%;max-width:1152px;background:#000;border-radius:6px;display:block}
+.ctl{display:flex;gap:8px;align-items:center;margin:10px 0;flex-wrap:wrap}
+button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--fg);cursor:pointer}
+button.on{border-color:var(--acc);color:var(--acc)}
+h2{font-size:16px;margin:4px 0}
+table{border-collapse:collapse;font-size:13px;margin-top:8px}
+td{padding:3px 14px 3px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:first-child{color:var(--muted)}
+.warn{color:var(--warn);font-weight:600}
+.hint{color:var(--muted);font-size:12px}
+@media (max-width:800px){main{flex-direction:column}#list{width:100%;height:40vh;border-right:0;border-bottom:1px solid var(--line)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Expert — humanoid_pallet_all</h1>
+  <label>Level <select id="f-level"><option value="">tất cả</option><option>1</option><option>2</option></select></label>
+  <label>Tay <select id="f-arm"><option value="">tất cả</option><option>L</option><option>R</option></select></label>
+  <label>DART <select id="f-dart"><option value="">tất cả</option><option value="0">không</option><option value="1">có</option></select></label>
+  <label>Hình <select id="f-shape"><option value="">tất cả</option></select></label>
+  <label>Màu <select id="f-color"><option value="">tất cả</option></select></label>
+  <label>Tìm <input id="f-q" size="10" placeholder="ep / task"></label>
+  <label>Sắp xếp <select id="sort">
+    <option value="ep">số episode</option>
+    <option value="seconds">độ dài (dài trước)</option>
+    <option value="longest_pause_frames">dừng lâu nhất</option>
+    <option value="hesitation_frames">tổng frame đứng yên</option>
+    <option value="jerk_p99_mrad">giật p99</option>
+    <option value="speed_ratio_max">tốc độ / giới hạn</option>
+    <option value="joint_margin_min_rad">sát giới hạn khớp</option>
+    <option value="grasp_offset_norm_mm">lệch điểm gắp</option>
+    <option value="grip_min_open">độ mở kẹp khi giữ</option>
+    <option value="grip_closes">số lần kẹp</option>
+  </select></label>
+  <span id="count"></span>
+</header>
+<main>
+  <div id="list"></div>
+  <div id="view"><p class="hint">Chọn một episode bên trái. Phím: ↑/↓ episode trước/sau · Space chạy/dừng · ←/→ lùi/tiến 1 frame · [ ] giảm/tăng tốc.</p></div>
+</main>
+<script>
+const DATA = __DATA__;
+const $ = s => document.querySelector(s);
+const fps = 25;
+let shown = [], cur = null, rate = 1;
+
+for (const k of ["shape", "color"]) {
+  const vals = [...new Set(DATA.map(r => r["target_" + k]))].sort();
+  for (const v of vals) $("#f-" + k).insertAdjacentHTML("beforeend", `<option>${v}</option>`);
+}
+const asc = new Set(["ep", "joint_margin_min_rad", "grip_min_open"]);
+
+function apply() {
+  const lv = $("#f-level").value, arm = $("#f-arm").value, dart = $("#f-dart").value,
+        sh = $("#f-shape").value, co = $("#f-color").value, q = $("#f-q").value.trim().toLowerCase(),
+        key = $("#sort").value;
+  shown = DATA.filter(r =>
+    (!lv || r.level == lv) && (!arm || r.arm === arm) &&
+    (!dart || (dart === "1") === (r.dart > 0)) &&
+    (!sh || r.target_shape === sh) && (!co || r.target_color === co) &&
+    (!q || String(r.ep) === q.replace(/^0+(?=\d)/, "") || r.task.toLowerCase().includes(q)));
+  shown.sort((a, b) => {
+    const x = a[key] ?? 0, y = b[key] ?? 0;
+    return asc.has(key) ? x - y : y - x;
+  });
+  $("#count").textContent = `${shown.length} / ${DATA.length} episode`;
+  $("#list").innerHTML = shown.map(r => {
+    const sv = key === "ep" ? "" : `<span class="sortv">${fmtSort(key, r[key])}</span> · `;
+    return `<div class="row${cur && cur.ep === r.ep ? " on" : ""}" data-ep="${r.ep}">
+      <span class="ep">${String(r.ep).padStart(4, "0")}</span>
+      <span class="task" title="${r.task}">${r.task.replace(/^put the /, "").replace(/ on the pallet$/, "")}</span>
+      <span class="tags">${sv}L${r.level} · ${r.arm}${r.dart > 0 ? " · DART" : ""} · ${r.seconds}s</span></div>`;
+  }).join("");
+}
+function fmtSort(k, v) {
+  if (v == null) return "–";
+  const unit = {seconds: "s", longest_pause_frames: "f", hesitation_frames: "f", jerk_p99_mrad: "mrad",
+                joint_margin_min_rad: "rad", grasp_offset_norm_mm: "mm"}[k] || "";
+  return v + unit;
+}
+
+function show(ep) {
+  cur = DATA.find(r => r.ep === ep);
+  document.querySelectorAll(".row").forEach(e => e.classList.toggle("on", +e.dataset.ep === ep));
+  const r = cur, e = r.end_checks || {};
+  const bad = (cond, txt) => cond ? `<span class="warn">${txt}</span>` : txt;
+  const rows = [
+    ["Task", r.task],
+    ["Level / tay / DART", `L${r.level} · ${r.arm === "L" ? "trái" : "phải"} · ${r.dart > 0 ? "noise " + r.dart : "không"}`],
+    ["Vật đích", `${r.target_shape} · ${r.target_color} · scale ${r.target_scale} · ô ${r.target_cell}`],
+    ["Vật trên bàn / đã có trên pallet", `${r.n_parts} / ${r.n_prefill}`],
+    ["Độ dài", `${r.seconds} s (${r.frames} frame)`],
+    ["Kẹp lần đầu", r.first_close_s == null ? "–" : r.first_close_s + " s"],
+    ["Số lần kẹp / mở", bad(r.grip_closes !== 1, `${r.grip_closes} / ${r.grip_opens}`)],
+    ["Độ mở kẹp khi giữ", r.grip_min_open],
+    ["Lệch điểm gắp (mm)", `${(r.grasp_offset_mm || []).join(", ")} (|${r.grasp_offset_norm_mm}|)`],
+    ["Dừng lâu nhất / tổng đứng yên", `${r.longest_pause_frames} / ${r.hesitation_frames} frame`],
+    ["Tốc độ lệnh max / giới hạn", bad(r.speed_ratio_max > 1.0, r.speed_ratio_max)],
+    ["Giật p99 / max", `${r.jerk_p99_mrad} / ${r.jerk_max_mrad} mrad`],
+    ["Cách giới hạn khớp nhỏ nhất", bad(r.joint_margin_min_rad < 0.05, `${r.joint_margin_min_rad} rad (joint${r.joint_margin_argmin})`)],
+    ["Tay kia trôi", bad(r.idle_arm_drift_mrad > 5, r.idle_arm_drift_mrad + " mrad")],
+    ["Kế hoạch đặt lại", r.replanned ? "có" : "không"],
+    ["Kiểm tra cuối", Object.entries(e).map(([k, v]) => bad(v === false, `${k}=${v}`)).join(" · ")],
+    ["Seed", r.seed],
+  ];
+  $("#view").innerHTML = `
+    <h2>episode_${String(r.ep).padStart(4, "0")}</h2>
+    <video id="vid" src="videos/ep${String(r.ep).padStart(4, "0")}.mp4" controls autoplay muted playsinline></video>
+    <div class="ctl">
+      <button id="prev">↑ trước</button><button id="next">sau ↓</button>
+      <span class="hint">tốc độ</span>
+      ${[0.25, 0.5, 1, 2].map(v => `<button class="spd${v === rate ? " on" : ""}" data-r="${v}">${v}×</button>`).join("")}
+      <span class="hint" id="t"></span>
+    </div>
+    <table>${rows.map(([k, v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join("")}</table>
+    <p class="hint">Video: camera đầu · cổ tay trái · cổ tay phải, 25 fps. Nhãn "grip" là lệnh gripper của expert.</p>`;
+  const v = $("#vid");
+  v.playbackRate = rate;
+  v.addEventListener("timeupdate", () => $("#t").textContent = `frame ${Math.round(v.currentTime * fps)} / ${r.frames}`);
+  $("#prev").onclick = () => step(-1);
+  $("#next").onclick = () => step(1);
+  document.querySelectorAll(".spd").forEach(b => b.onclick = () => setRate(+b.dataset.r));
+  const row = document.querySelector(`.row[data-ep="${ep}"]`);
+  if (row) row.scrollIntoView({block: "nearest"});
+}
+function setRate(r) {
+  rate = r;
+  const v = $("#vid");
+  if (v) v.playbackRate = r;
+  document.querySelectorAll(".spd").forEach(b => b.classList.toggle("on", +b.dataset.r === r));
+}
+function step(d) {
+  if (!shown.length) return;
+  const i = cur ? shown.findIndex(r => r.ep === cur.ep) : -1;
+  const j = Math.min(shown.length - 1, Math.max(0, i + d));
+  show(shown[j].ep);
+}
+
+$("#list").addEventListener("click", ev => {
+  const row = ev.target.closest(".row");
+  if (row) show(+row.dataset.ep);
+});
+document.querySelectorAll("header select, header input").forEach(el => el.addEventListener("input", apply));
+document.addEventListener("keydown", ev => {
+  if (ev.target.tagName === "INPUT" || ev.target.tagName === "SELECT") return;
+  const v = $("#vid");
+  if (ev.key === "ArrowDown") { step(1); ev.preventDefault(); }
+  else if (ev.key === "ArrowUp") { step(-1); ev.preventDefault(); }
+  else if (!v) return;
+  else if (ev.key === " ") { v.paused ? v.play() : v.pause(); ev.preventDefault(); }
+  else if (ev.key === "ArrowRight") { v.pause(); v.currentTime += 1 / fps; ev.preventDefault(); }
+  else if (ev.key === "ArrowLeft") { v.pause(); v.currentTime -= 1 / fps; ev.preventDefault(); }
+  else if (ev.key === "]") setRate(Math.min(4, rate * 2));
+  else if (ev.key === "[") setRate(Math.max(0.125, rate / 2));
+});
+apply();
+</script>
+</body>
+</html>

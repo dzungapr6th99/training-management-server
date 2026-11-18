@@ -1,0 +1,174 @@
+{
+  "tag": "demo_act_success_200019",
+  "config": {
+    "checkpoint": "outputs/act_pallet_all/checkpoints/100000/pretrained_model",
+    "sim_script": "scripts/humanoid_pallet_sim.py",
+    "episodes": 1,
+    "seed": 200019,
+    "seeds": [
+      200019,
+      200019
+    ],
+    "exec_steps": 8,
+    "episode_seconds": 23.76,
+    "extra_sim_args": [
+      "--level",
+      "1",
+      "--split",
+      "train",
+      "--save-video",
+      "logs/videos/act_success"
+    ],
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-10-08T15:08:56",
+  "wall_seconds": 225.3,
+  "complete": true,
+  "n_episodes": 1,
+  "n_success": 1,
+  "success_rate": 1.0,
+  "wilson95": [
+    0.2065,
+    1.0
+  ],
+  "infer_ms_mean": 41.64,
+  "infer_ms_max": 362.86,
+  "server_infer_ms_mean": 37.49,
+  "server_info": {
+    "ok": true,
+    "policy_type": "act",
+    "image_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "n_action_steps": 100,
+    "state_dim": 16,
+    "action_dim": 16,
+    "uses_task": false,
+    "vram_gib": 0.193,
+    "vram_peak_gib": 0.193
+  },
+  "vram_peak_gib": 0.217,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 200019,
+      "episodes_requested": 1,
+      "episodes_total_after": 1,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 200019,
+      "success": true,
+      "steps": 594,
+      "seconds": 173.9,
+      "exec_steps": 8,
+      "episode_seconds": 23.76,
+      "max_lift_m": 0.1252,
+      "lifted": true,
+      "first_in_cell_step": 219,
+      "grip_min_cmd": {
+        "L": 0.995,
+        "R": 0.0
+      },
+      "arm_distance_min_m": 0.234,
+      "n_infer": 75,
+      "infer_ms_mean": 41.64,
+      "infer_ms_max": 362.86,
+      "server_infer_ms_mean": 37.49,
+      "level": 1,
+      "split": "train",
+      "task": "put the orange cube on the pallet",
+      "dart_noise": 0.0,
+      "parts": [
+        {
+          "shape": "box",
+          "scale": 0.8,
+          "color": "orange",
+          "name": "cube",
+          "dims": [
+            0.032,
+            0.032,
+            0.032
+          ],
+          "mass_kg": 0.0164,
+          "xy": [
+            0.4365,
+            -0.2182
+          ],
+          "yaw_deg": 129.5
+        }
+      ],
+      "prefill": [],
+      "target": 0,
+      "target_cell": 3,
+      "arm": "R",
+      "arm_reach": {
+        "L": true,
+        "R": true
+      },
+      "grasp_yaw_deg": 39.5,
+      "ik_margin": 0.072,
+      "arm_clearance_m": 0.298,
+      "dr": {
+        "dome_intensity": 1607.5974030812638,
+        "sun_intensity": 236.0699143758027,
+        "sun_elevation_deg": 59.94344675842673,
+        "sun_azimuth_deg": 90.17703959376098,
+        "color_temperature_k": 4080.006016869908,
+        "table_rgb": [
+          0.726,
+          0.656,
+          0.53
+        ],
+        "table_texture": "table_fabric.png",
+        "table_roughness": 0.32910972390580384,
+        "texture_scale": 1.2874623119144806,
+        "texture_rotate_deg": 102.43214906004418,
+        "texture_translate": [
+          0.466,
+          0.764
+        ],
+        "cam_d_pos_m": [
+          0.0049,
+          -0.016,
+          -0.0051
+        ],
+        "cam_d_rot_deg": [
+          2.5,
+          -2.57,
+          1.11
+        ],
+        "part_friction": [
+          0.826
+        ],
+        "part_mass_scale": [
+          1.115
+        ]
+      },
+      "pallet_center": [
+        0.5062,
+        0.0047
+      ],
+      "pallet_yaw_deg": -0.48,
+      "cell": 0,
+      "cell_was_free": true,
+      "low": true,
+      "still": true,
+      "upright": true,
+      "others_on_pallet": [],
+      "end_pos": [
+        0.468,
+        -0.0589,
+        0.022
+      ],
+      "lin_vel": 0.0,
+      "ang_vel": 0.0,
+      "rejected_layouts": 1
+    }
+  ]
+}

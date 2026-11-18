@@ -1,0 +1,26 @@
+{
+ "generated_by": "scripts/train_pipeline.py",
+ "run": "smolvla_pallet_all",
+ "model": "smolvla",
+ "init": "models/smolvla_base_humanoid",
+ "dataset": "datasets/lerobot/yellowarm_pallet_all",
+ "steps": 40000,
+ "batch_size": 8,
+ "mode": "fresh",
+ "exit_code": 0,
+ "finished": true,
+ "wall_hours": 2.434,
+ "steps_per_s": 4.56,
+ "peak_mem_gb_logged": 3.57,
+ "last_logged_step": "40K",
+ "final_loss_mean_last5_logs": 0.0272,
+ "loss_first_log": 2.516,
+ "checkpoints": [
+  "010000",
+  "020000",
+  "030000",
+  "040000"
+ ],
+ "command": "D:\\Isaac\\smolvla-openarm\\env\\Scripts\\lerobot-train.exe --policy.path=D:\\Isaac\\smolvla-openarm\\models\\smolvla_base_humanoid --policy.push_to_hub=false --dataset.repo_id=local/yellowarm_pallet_all --dataset.root=D:\\Isaac\\smolvla-openarm\\datasets\\lerobot\\yellowarm_pallet_all --dataset.video_backend=pyav --batch_size=8 --num_workers=4 --log_freq=200 --wandb.enable=false --steps=40000 --save_freq=10000 --output_dir=D:\\Isaac\\smolvla-openarm\\outputs\\smolvla_pallet_all --job_name=smolvla_pallet_all",
+ "log": "logs/train_smolvla_pallet_all.log"
+}

@@ -1,0 +1,163 @@
+{
+  "act_pallet_all": {
+    "checkpoint": "outputs\\act_pallet_all\\checkpoints\\100000\\pretrained_model",
+    "exec_steps": 32,
+    "rule": "max success, ties -> larger",
+    "validation": {
+      "seeds": [
+        200000,
+        200019
+      ],
+      "level": 1,
+      "split": "train",
+      "episode_seconds": 23.76
+    },
+    "candidates": {
+      "4": {
+        "n_success": 2,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0279,
+          0.301
+        ],
+        "tag": "val_act_pallet_all_L1_exec4"
+      },
+      "8": {
+        "n_success": 4,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0807,
+          0.416
+        ],
+        "tag": "val_act_pallet_all_L1_exec8"
+      },
+      "16": {
+        "n_success": 6,
+        "n_episodes": 20,
+        "wilson95": [
+          0.1455,
+          0.519
+        ],
+        "tag": "val_act_pallet_all_L1_exec16"
+      },
+      "32": {
+        "n_success": 7,
+        "n_episodes": 20,
+        "wilson95": [
+          0.1812,
+          0.5671
+        ],
+        "tag": "val_act_pallet_all_L1_exec32"
+      }
+    },
+    "chosen": "2026-10-08T15:29:35"
+  },
+  "act_pallet_all_smooth": {
+    "checkpoint": "outputs\\act_pallet_all\\checkpoints\\100000\\pretrained_model",
+    "exec_steps": 16,
+    "rule": "max success, ties -> larger",
+    "sim_args": "--smooth",
+    "validation": {
+      "seeds": [
+        200000,
+        200019
+      ],
+      "level": 1,
+      "split": "train",
+      "episode_seconds": 23.76
+    },
+    "candidates": {
+      "4": {
+        "n_success": 3,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0524,
+          0.3604
+        ],
+        "tag": "val_act_pallet_all_smooth_L1_exec4"
+      },
+      "8": {
+        "n_success": 6,
+        "n_episodes": 20,
+        "wilson95": [
+          0.1455,
+          0.519
+        ],
+        "tag": "val_act_pallet_all_smooth_L1_exec8"
+      },
+      "16": {
+        "n_success": 9,
+        "n_episodes": 20,
+        "wilson95": [
+          0.2582,
+          0.6579
+        ],
+        "tag": "val_act_pallet_all_smooth_L1_exec16"
+      },
+      "32": {
+        "n_success": 7,
+        "n_episodes": 20,
+        "wilson95": [
+          0.1812,
+          0.5671
+        ],
+        "tag": "val_act_pallet_all_smooth_L1_exec32"
+      }
+    },
+    "chosen": "2026-10-08T18:24:40"
+  },
+  "smolvla_pallet_all_smooth": {
+    "checkpoint": "outputs\\smolvla_pallet_all\\checkpoints\\040000\\pretrained_model",
+    "exec_steps": 16,
+    "rule": "max success, ties -> larger",
+    "sim_args": "--smooth",
+    "validation": {
+      "seeds": [
+        200000,
+        200019
+      ],
+      "level": 1,
+      "split": "train",
+      "episode_seconds": 23.76
+    },
+    "candidates": {
+      "4": {
+        "n_success": 2,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0279,
+          0.301
+        ],
+        "tag": "val_smolvla_pallet_all_smooth_L1_exec4"
+      },
+      "8": {
+        "n_success": 1,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0089,
+          0.2361
+        ],
+        "tag": "val_smolvla_pallet_all_smooth_L1_exec8"
+      },
+      "16": {
+        "n_success": 3,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0524,
+          0.3604
+        ],
+        "tag": "val_smolvla_pallet_all_smooth_L1_exec16"
+      },
+      "32": {
+        "n_success": 1,
+        "n_episodes": 20,
+        "wilson95": [
+          0.0089,
+          0.2361
+        ],
+        "tag": "val_smolvla_pallet_all_smooth_L1_exec32"
+      }
+    },
+    "chosen": "2026-10-09T17:53:57"
+  }
+}

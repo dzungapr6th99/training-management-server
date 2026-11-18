@@ -1,0 +1,117 @@
+{
+  "tag": "test_server_info",
+  "config": {
+    "checkpoint": "outputs/smolvla_yellowarm_cube_in_box/checkpoints/030000/pretrained_model",
+    "sim_script": "D:\\Isaac\\smolvla-openarm\\scripts\\yellowarm_sim.py",
+    "episodes": 2,
+    "seed": 1000,
+    "seeds": [
+      1000,
+      1001
+    ],
+    "exec_steps": 8,
+    "episode_seconds": 10.0,
+    "extra_sim_args": [],
+    "host": "DESKTOP-7HTN5PU"
+  },
+  "started": "2026-10-04T18:28:13",
+  "wall_seconds": 111.4,
+  "complete": true,
+  "n_episodes": 2,
+  "n_success": 2,
+  "success_rate": 1.0,
+  "wilson95": [
+    0.3424,
+    1.0
+  ],
+  "infer_ms_mean": 263.36,
+  "infer_ms_max": 565.31,
+  "server_infer_ms_mean": 261.18,
+  "server_info": {
+    "ok": true,
+    "policy_type": "smolvla",
+    "image_keys": [
+      "observation.images.camera1",
+      "observation.images.camera2",
+      "observation.images.camera3"
+    ],
+    "n_action_steps": 50,
+    "state_dim": 8,
+    "action_dim": 8,
+    "uses_task": true,
+    "vram_gib": 0.863,
+    "vram_peak_gib": 0.863
+  },
+  "vram_peak_gib": 0.905,
+  "attempts": [
+    {
+      "attempt": 0,
+      "first_seed": 1000,
+      "episodes_requested": 2,
+      "episodes_total_after": 2,
+      "end": "sim exited with code 0"
+    }
+  ],
+  "episodes": [
+    {
+      "episode": 0,
+      "seed": 1000,
+      "success": true,
+      "steps": 250,
+      "seconds": 37.39,
+      "first_in_box_step": 135,
+      "cube_lifted": true,
+      "cube_max_z": 0.1469,
+      "end_dist_to_box": 0.0127,
+      "cube_start": [
+        0.2876,
+        0.1761
+      ],
+      "cube_yaw_deg": 4.7,
+      "box": [
+        0.3443,
+        -0.2234
+      ],
+      "cube_end": [
+        0.3494,
+        -0.2118,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 268.93,
+      "infer_ms_max": 565.31,
+      "server_infer_ms_mean": 266.6
+    },
+    {
+      "episode": 1,
+      "seed": 1001,
+      "success": true,
+      "steps": 250,
+      "seconds": 35.98,
+      "first_in_box_step": 94,
+      "cube_lifted": true,
+      "cube_max_z": 0.137,
+      "end_dist_to_box": 0.0157,
+      "cube_start": [
+        0.3712,
+        -0.0204
+      ],
+      "cube_yaw_deg": -31.3,
+      "box": [
+        0.3625,
+        -0.3175
+      ],
+      "cube_end": [
+        0.3655,
+        -0.3329,
+        0.03
+      ],
+      "ready_err_mm": 0.0,
+      "n_infer": 32,
+      "infer_ms_mean": 257.79,
+      "infer_ms_max": 277.91,
+      "server_infer_ms_mean": 255.76
+    }
+  ]
+}

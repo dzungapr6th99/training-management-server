@@ -1,0 +1,21 @@
+{
+ "generated_by": "scripts/train_pipeline.py",
+ "run": "pi05_pallet_all_smoke",
+ "model": "pi05",
+ "init": "lerobot/pi05_base (expert-only fine-tune)",
+ "dataset": "datasets/lerobot/yellowarm_pallet_all",
+ "steps": 200,
+ "batch_size": 8,
+ "mode": "fresh",
+ "exit_code": 1,
+ "finished": false,
+ "wall_hours": 0.025,
+ "steps_per_s": 2.25,
+ "peak_mem_gb_logged": null,
+ "last_logged_step": null,
+ "final_loss_mean_last5_logs": null,
+ "loss_first_log": null,
+ "checkpoints": [],
+ "command": "D:\\Isaac\\smolvla-openarm\\env\\Scripts\\lerobot-train.exe --policy.type=pi05 --policy.pretrained_path=lerobot/pi05_base --policy.device=cuda --policy.dtype=bfloat16 --policy.gradient_checkpointing=true --policy.freeze_vision_encoder=true --policy.train_expert_only=true --policy.scheduler_decay_steps=20000 --rename_map={\"observation.images.camera1\": \"observation.images.base_0_rgb\", \"observation.images.camera2\": \"observation.images.left_wrist_0_rgb\", \"observation.images.camera3\": \"observation.images.right_wrist_0_rgb\"} --policy.push_to_hub=false --dataset.repo_id=local/yellowarm_pallet_all --dataset.root=D:\\Isaac\\smolvla-openarm\\datasets\\lerobot\\yellowarm_pallet_all --dataset.video_backend=pyav --batch_size=8 --num_workers=4 --log_freq=200 --wandb.enable=false --steps=200 --save_freq=200 --output_dir=D:\\Isaac\\smolvla-openarm\\outputs\\pi05_pallet_all_smoke --job_name=pi05_pallet_all_smoke",
+ "log": "logs/train_pi05_pallet_all_smoke.log"
+}
